@@ -1,3 +1,4 @@
+#importing stuff
 import turtle
 import time
 wn = turtle.Screen()
@@ -14,6 +15,7 @@ start_game.hideturtle()
 start_game.goto(0,0)
 start_game.write('Press s to start and q to quit', align='center', font=('Courier', '30', 'bold'))
 x = 1
+# starting the game
 def game():
     start_game.clear()
     ball.speed(0)
@@ -21,6 +23,7 @@ def game():
     ball.color('white')
     ball.penup()
     ball.goto(0, 0)
+# changing directions
 def up():
     ball.setheading(90)
 def down():
@@ -31,6 +34,7 @@ def right():
     ball.setheading(0)
 def quit_game():
     wn.bye()
+# keyboard presses
 wn.listen()
 wn.onkey(game, 's')
 wn.onkey(up, 'Up')
@@ -40,27 +44,28 @@ wn.onkey(right, 'Right')
 wn.onkey(quit_game, 'q')
 
 while True:
+    # kinda like wn.mainloop()
     wn.update()
-
+    #setting the ball speed
     ball.forward(x)
-    
+    # checking collisions
     if ball.ycor() > 278:
-        ball.goto(0, 0)
         time.sleep(1)
+        ball.goto(0, 0)
         x *= 2
 
     if ball.ycor() < -278:
-        ball.goto(0, 0)
         time.sleep(1)
+        ball.goto(0, 0)
         x *= 2
 
     if ball.xcor() > 278:
-        ball.goto(0, 0)
         time.sleep(1)
+        ball.goto(0, 0)
         x *= 2
 
 
     if ball.xcor() < -278:
-        ball.goto(0, 0)
         time.sleep(1)
+        ball.goto(0, 0)
         x *= 2
